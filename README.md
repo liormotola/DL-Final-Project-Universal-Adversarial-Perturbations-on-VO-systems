@@ -60,28 +60,28 @@ This module is the main module that runs the entire process, from calculating th
     a.	attack.py
     In this module, we added implementations to the optimizers steps we tested and experimented. The added methods are as follows:
         
-     i.	gradient_ascent_rmsprop_step 
+    i.	gradient_ascent_rmsprop_step 
         This method implements the optimization step of the RMSProp method as described in section 2 of the report.
     
-     ii.	gradient_ascent_Adam_step_sign 
+    ii.	gradient_ascent_Adam_step_sign 
         This method implements the optimization step of the adapted Adam method as described in section 2 of the report.
     
-     iii. gradient_ascent_APGD 
+    iii. gradient_ascent_APGD 
         This method implements the optimization step of the APGD algorithm as described in section 2 of the report.
 
     b.	pgd.py
     In this module we implemented several perturb methods to be used for different models we tested with the PGD attack. The added methods are as follows:
     
-        i.	perturb_adam
+       i.	perturb_adam
             This method includes slight adjustments to the original perturb method so we can use the Adam model. It can also be used to check the RMSProp model, you only need to change the step function manually from gradient_ascent_Adam_step_sign to gradient_ascent_rmsprop_step (line 288) .
        
-        ii.	perturb_APGD 
+       ii.	perturb_APGD 
             This method implements the APGD model including perturbing the VO model.
        
-        iii. halve_step_size
+       iii. halve_step_size
             This function is being used by the perturb_APGD method, and halves the optimization step size if certain conditions are met.
         
-        iv.	calc_sample_grad_single_APGD
+       iv.	calc_sample_grad_single_APGD
        
             This function does the same as the original given calc_sample_grad_single function, except that it also returns the loss sum which is required to APGD, in addition to the grad itself. 
 
